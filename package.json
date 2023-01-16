@@ -1,0 +1,23 @@
+{
+  "name": "frontend-int-swagger",
+  "version": "1.0.0",
+  "description": "Frontend integration with Swagger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diralf/frontend-int-swagger.git"
+  },
+  "keywords": [
+    "swagger",
+    "eslint"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Diralf/frontend-int-swagger/issues"
+  },
+  "homepage": "https://github.com/Diralf/frontend-int-swagger#readme"
+}
