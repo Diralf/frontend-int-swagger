@@ -1,0 +1,141 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample Bookstore swagger.",
+    "version": "1.0.6",
+    "title": "Swagger Bookstore",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "bookstore.swagger.io",
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "book",
+      "description": "Access to Books"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/book/{id}": {
+      "put": {
+        "tags": [
+          "book"
+        ],
+        "summary": "Update an existing book",
+        "description": "",
+        "operationId": "updateBook",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of book to update",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "new data of Book",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateBook"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/Book"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    },
+    "bookstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://bookstore.swagger.io/oauth/authorize",
+      "flow": "implicit",
+      "scopes": {
+        "read:books": "read your books",
+        "write:books": "modify books in your account"
+      }
+    }
+  },
+  "definitions": {
+    "UpdateBook": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        }
+      }
+    },
+    "Book": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        }
+      }
+    },
+    "Comment": {
+      "type": "object",
+      "required": [
+        "id",
+        "text"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
