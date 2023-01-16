@@ -5,8 +5,10 @@
   "extends": [
     "eslint:recommended",
     "plugin:eslint-plugin/recommended",
-    "plugin:node/recommended"
+    "plugin:node/recommended",
+    "standard-with-typescript"
   ],
+  "plugins": ["eslint-plugin-local-rules"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
@@ -20,6 +22,14 @@
       ],
       "env": {
         "mocha": true
+      }
+    },
+    {
+      "files": [
+        "**/*.ts"
+      ],
+      "rules": {
+        "local-rules/interface-is-dto": "warn"
       }
     }
   ]

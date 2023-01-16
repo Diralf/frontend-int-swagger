@@ -2,7 +2,7 @@ interface Params {
     id: number;
 }
 
-interface UpdateBookBody {
+interface UpdateBookBodyDto {
     name?: string;
     author?: string;
 }
