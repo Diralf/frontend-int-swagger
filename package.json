@@ -9,7 +9,9 @@
     "lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
     "lint:js": "eslint .",
     "test": "mocha tests --recursive",
-    "update:eslint-docs": "eslint-doc-generator"
+    "update:eslint-docs": "eslint-doc-generator",
+    "swagger": "npx swagger-typescript-api -p ./swagger.json -o ./api",
+    "ajv": "node ./src/ajv/ajv-example.js"
   },
   "repository": {
     "type": "git",
